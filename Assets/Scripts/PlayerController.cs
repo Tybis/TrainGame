@@ -4,7 +4,6 @@ Date: 06/15/21
 Summary: Script that handles input that effects Player movement.
 */
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -30,6 +29,11 @@ public class PlayerController : MonoBehaviour {
                         StopCoroutine(_moveCoroutine);
                     _moveCoroutine = StartCoroutine(MoveTo(hit.point));
                     break;
+                //future implementations below
+                case "Object":
+                    break;
+                case "NPC":
+                    break;
                 default: break;
             }
         }
@@ -38,11 +42,22 @@ public class PlayerController : MonoBehaviour {
     public IEnumerator MoveTo(Vector3 newPosition) {
         newPosition.y = transform.position.y;
         var direction = Vector3.Normalize(newPosition - transform.position);
-        while (!Physics.CheckSphere(newPosition + direction + Vector3.up, 0.5f)) {
+        float travelDistance = 0f;
+        float distanceToTravel = Vector3.Distance(newPosition, transform.position);
+        while (travelDistance <= distanceToTravel) {
             isIdleState = false;
-            transform.position += direction * moveSpeed * Time.deltaTime;
+            var movement = direction * moveSpeed * Time.deltaTime;
+            travelDistance += movement.magnitude;
+            transform.position += movement;
             yield return new WaitForEndOfFrame();
         }
         isIdleState = true;
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Door")) {
+            other.GetComponent<TrainDoor>().GoToNextCar();
+        }
+    }
+
 }
