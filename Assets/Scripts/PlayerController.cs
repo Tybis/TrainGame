@@ -39,6 +39,11 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="newPosition"></param>
+    /// <returns></returns>
     public IEnumerator MoveTo(Vector3 newPosition) {
         newPosition.y = transform.position.y;
         var direction = Vector3.Normalize(newPosition - transform.position);
@@ -54,6 +59,10 @@ public class PlayerController : MonoBehaviour {
         isIdleState = true;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Door")) {
             other.GetComponent<TrainDoor>().GoToNextCar();

@@ -1,3 +1,9 @@
+/*
+NormalInverter.cs
+Author: Christian Mullins
+Date: 06/15/21
+Summary: Utility tool to instantly flip normals with jsut a button.
+*/
 using UnityEngine;
 using UnityEditor;
  

@@ -1,6 +1,7 @@
 /*
+TrainDoor.cs
 Author: Christian Mullins
-Date: 06/17/21
+Date: 6/17/21
 Summary: Simple script object to handle door transitions
 */
 using System;
