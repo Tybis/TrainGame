@@ -20,9 +20,9 @@ public class CameraController : MonoBehaviour {
 
     //constraint bools
     [Header("Constraints")]
-    public bool freezeHorizontalAxis;
+    //public bool freezeHorizontalAxis;
     public bool keepDistanceFromTarget;
-
+    
     private bool _isRotating = false;
     private Camera _myCam;
     //constraining components
@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour {
         _lookAtConstraint.AddSource(newSource);
         _lookAtConstraint.constraintActive = true;
         _positionConstraint.AddSource(newSource);
-        _positionConstraint.translationOffset = transform.forward * trackingDistance;
+        _positionConstraint.translationOffset = -transform.forward * trackingDistance;
         if (keepDistanceFromTarget)
             _positionConstraint.translationAxis = Axis.Z | Axis.X;
         else
@@ -59,7 +59,6 @@ public class CameraController : MonoBehaviour {
     private void Update() {
         if (_isRotating) return;
 
-        //debugging shit
         #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.LeftArrow))
             StartCoroutine(RotateCamera("left"));
@@ -161,7 +160,7 @@ public class CameraController : MonoBehaviour {
     }
 
     /// <summary>
-    /// 
+    /// Take in Vector3 and output relative Axis enum.
     /// </summary>
     /// <param name="direction">Vector3 of normalized direction.</param>
     /// <returns>Axis enum</returns>
@@ -181,7 +180,7 @@ public class CameraController : MonoBehaviour {
     }
 
     private static Direction _GetLongestAxis(in Vector3 checking) {
-        int index = -1;
+        int index = -2;
         float greatestAxis = 0f;
         for (int i = 0; i < 3; ++i) {
             if (Mathf.Abs(checking[i]) > Mathf.Abs(greatestAxis)) {
