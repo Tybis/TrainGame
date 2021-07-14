@@ -1,7 +1,8 @@
 /*
+HintableObjects.cs
 Author: Christian Mullins
 Date: 6/22/21
-Summary
+Summary: Handles the process of hinting an object for player feedback.
 */
 using System.Collections;
 using System.Collections.Generic;
