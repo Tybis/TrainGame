@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - BackgroundCamera
+  - Ground
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -12,11 +13,11 @@ TagManager:
   - 
   - Water
   - UI
+  - HintMask
   - 
   - 
-  - NavMesh
-  - BackgroundImage
-  - DistantHotspot
+  - 
+  - 
   - 
   - 
   - 
