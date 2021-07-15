@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   title: ShiftRight
-  slotSize: {x: 2.5, y: 15.4}
+  slotSize: {x: 4.2, y: 20.4}
   sizeType: 1
   positionType: 2
   slotSpacing: 0
@@ -1426,11 +1426,11 @@ MonoBehaviour:
   maxAutoWidthFactor: 0.5
   relativeRect:
     serializedVersion: 2
-    x: 781.326
-    y: 17.74767
-    width: 27.3
-    height: 94.55599
-  relativePosition: {x: 95.4, y: 14.1}
+    x: 488.52002
+    y: 0
+    width: 28.98
+    height: 79.152
+  relativePosition: {x: 94.4, y: 0}
   numSlots: 1
   uiButton: {fileID: 0}
   uiPointerState: 0
@@ -2001,7 +2001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   title: ShiftLeft
-  slotSize: {x: 2.5, y: 15.4}
+  slotSize: {x: 3.9, y: 20.4}
   sizeType: 1
   positionType: 2
   slotSpacing: 0
@@ -2026,11 +2026,11 @@ MonoBehaviour:
   maxAutoWidthFactor: 0.5
   relativeRect:
     serializedVersion: 2
-    x: 9.828
-    y: 17.74767
-    width: 27.3
-    height: 94.55599
-  relativePosition: {x: 1.2, y: 14.1}
+    x: 0
+    y: 0
+    width: 26.910002
+    height: 79.152
+  relativePosition: {x: 0, y: 0}
   numSlots: 1
   uiButton: {fileID: 0}
   uiPointerState: 0
@@ -4702,10 +4702,10 @@ MonoBehaviour:
   maxAutoWidthFactor: 0.5
   relativeRect:
     serializedVersion: 2
-    x: 54.872997
-    y: 25.803349
-    width: 709.8
-    height: 75.522
+    x: 34.6725
+    y: 16.3057
+    width: 448.5
+    height: 47.724003
   relativePosition: {x: 6.7, y: 20.5}
   numSlots: 7
   uiSlots:
@@ -5029,7 +5029,7 @@ MonoBehaviour:
   title: Inventory
   manualSize: {x: 75, y: 20.5}
   positionType: 1
-  manualPosition: {x: 546, y: 551.065}
+  manualPosition: {x: 345, y: 348.22998}
   positionSmoothing: 0
   alignment: 7
   toggleKey: 
@@ -5105,10 +5105,10 @@ MonoBehaviour:
   biggestElementSize: {x: 833.7, y: 129.96}
   rect:
     serializedVersion: 2
-    x: 136.5
-    y: 488.13
-    width: 819
-    height: 125.869995
+    x: 86.25
+    y: 308.46
+    width: 517.5
+    height: 79.54
   showInFilter: 1
 --- !u!114 &4573670656667043774
 MonoBehaviour:
