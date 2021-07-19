@@ -26,6 +26,7 @@ public class SceneEffects : MonoBehaviour {
         rectTrans.anchorMin = Vector2.zero;
         //make image black and force alpha to max transparency
         blackOutImage.color = new Color(0f, 0f, 0f, 0f);
+        //DontDestroyOnLoad(_canvasGO);
         //fade image in
         yield return StartCoroutine(_Fade(blackOutImage, true));
     }
