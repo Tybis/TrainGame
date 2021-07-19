@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Warren_Test.unity
     guid: 29892ceceb11ef14f92905a34721815d
+  - enabled: 1
+    path: Assets/Scenes/Christian's_Test_Scene_2.0.unity
+    guid: b1265fe0429974f499fb668ec7c6ad0f
   m_configObjects: {}
