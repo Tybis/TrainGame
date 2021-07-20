@@ -5049,7 +5049,7 @@ MonoBehaviour:
   - {fileID: 4088836629693894688}
   - {fileID: -6483617864919306384}
   transitionProgress: 0
-  appearType: 0
+  appearType: 7
   speechMenuType: 0
   speechMenuLimit: 0
   limitToCharacters: 
