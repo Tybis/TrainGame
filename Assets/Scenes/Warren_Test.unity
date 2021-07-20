@@ -1572,10 +1572,6 @@ PrefabInstance:
       propertyPath: navigationEngine
       value: 
       objectReference: {fileID: 1778949581}
-    - target: {fileID: 1790562867805617490, guid: be8b02ade64b237489a4073af677c6d7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7379709872466130496, guid: be8b02ade64b237489a4073af677c6d7, type: 3}
       propertyPath: m_Camera
       value: 
