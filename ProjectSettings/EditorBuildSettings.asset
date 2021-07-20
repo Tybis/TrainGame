@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Christian's_Test_Scene.unity
     guid: cb2b91cc751f9c643816401a6e83fb80
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Warren_Test.unity
     guid: 29892ceceb11ef14f92905a34721815d
   - enabled: 1
