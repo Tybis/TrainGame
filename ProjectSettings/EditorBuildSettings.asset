@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Warren_Test.unity
     guid: 29892ceceb11ef14f92905a34721815d
+  - enabled: 1
+    path: Assets/Scenes/BuildScene_1.unity
+    guid: 73f4fef68eef8c3469658d9853af2104
+  - enabled: 1
+    path: Assets/Scenes/BuildScene_2.unity
+    guid: 3b5af63c0da635f42bb01e47dad0c2a7
   m_configObjects: {}
