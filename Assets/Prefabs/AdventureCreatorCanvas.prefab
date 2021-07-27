@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 9109336611126884505}
   - component: {fileID: 1785965681894737072}
   m_Layer: 5
-  m_Name: backsplash (1)
+  m_Name: backsplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 2115826799249326892}
   - component: {fileID: 5258531372080220753}
   m_Layer: 5
-  m_Name: backsplash
+  m_Name: backsplash_tiny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
