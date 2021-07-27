@@ -1,0 +1,91 @@
+fileFormatVersion: 2
+guid: 4b77cc5531c6d4c42b235a59d1f190e3
+timeCreated: 1426420507
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Base
+    100002: Laser
+    100004: Laser_end
+    100006: //RootNode
+    100008: LaserGun
+    100010: Pointer
+    100012: rLaserGun
+    100014: Beam
+    400000: Base
+    400002: Laser
+    400004: Laser_end
+    400006: //RootNode
+    400008: LaserGun
+    400010: Pointer
+    400012: rLaserGun
+    400014: Beam
+    4300000: LaserGun
+    4300002: Beam
+    7400000: rLaserGun|MoveUp
+    7400002: rLaserGun|Off
+    7400004: rLaserGun|On
+    7400006: rLaserGun|TurnOff
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: LaserGun
+    13700002: Beam
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

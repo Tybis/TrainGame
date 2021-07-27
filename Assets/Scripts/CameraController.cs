@@ -5,29 +5,33 @@ Date: 6/19/2021
 Summary: Controls movement of the camera
 */
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour {
     public Transform target;
-    [Tooltip("Only effective if KeepDistanceFromTarget is checked(true).")]
     [Range(5f, 15f)]
+    [Tooltip("Only effective if KeepDistanceFromTarget is checked(true).")]
     public float trackingDistance;
     [Range(10f, 30f)]
     public float rotationSpeed;
 
     //constraint bools
     [Header("Constraints")]
-    public bool freezeHorizontalAxis;
+    //public bool freezeHorizontalAxis;
     public bool keepDistanceFromTarget;
-
+    
     private bool _isRotating = false;
     private Camera _myCam;
     //constraining components
     private LookAtConstraint _lookAtConstraint;
     private PositionConstraint _positionConstraint;
+
+    public bool isWalkwayView => currentSide.Equals(Mathf.Abs((int)_GetHallwayAxis()));
 
     private Vector3 _rightRotateTarget => target.position + (transform.right * trackingDistance);
     private Vector3 _leftRotateTarget => target.position - (transform.right * trackingDistance);
@@ -48,7 +52,7 @@ public class CameraController : MonoBehaviour {
         _lookAtConstraint.AddSource(newSource);
         _lookAtConstraint.constraintActive = true;
         _positionConstraint.AddSource(newSource);
-        _positionConstraint.translationOffset = transform.forward * trackingDistance;
+        _positionConstraint.translationOffset = -transform.forward * trackingDistance;
         if (keepDistanceFromTarget)
             _positionConstraint.translationAxis = Axis.Z | Axis.X;
         else
@@ -58,16 +62,18 @@ public class CameraController : MonoBehaviour {
 
     private void Update() {
         if (_isRotating) return;
-
-        //debugging shit
+        /*
         #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.LeftArrow))
             StartCoroutine(RotateCamera("left"));
         else if (Input.GetKeyDown(KeyCode.RightArrow))
             StartCoroutine(RotateCamera("right"));
         #endif
+        */
     }
 
+    
+    #region LookAtConstraint_Functions
     /// <summary>
     /// 
     /// </summary>
@@ -82,7 +88,7 @@ public class CameraController : MonoBehaviour {
         var newSource = new ConstraintSource();
         newSource.sourceTransform = focalPoint;
         _lookAtConstraint.AddSource(newSource);
-        _SetSourceConstraintWeights(1f / _lookAtConstraint.sourceCount);
+        _SetFocalConstraintWeights (1f / _lookAtConstraint.sourceCount);
     }
 
     /// <summary>
@@ -93,7 +99,59 @@ public class CameraController : MonoBehaviour {
         for (int i = 0; i < _lookAtConstraint.sourceCount; ++i)
             if (_lookAtConstraint.GetSource(i).sourceTransform.Equals(focalPoint))
                 _lookAtConstraint.RemoveSource(i);
-        _SetSourceConstraintWeights(1f / _lookAtConstraint.sourceCount);
+        _SetFocalConstraintWeights(1f / _lookAtConstraint.sourceCount);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="newWeight"></param>
+    private void _SetFocalConstraintWeights(in float newWeight) {
+        for (int i = 0; i < _lookAtConstraint.sourceCount; ++i) {
+            var sourceI = _lookAtConstraint.GetSource(i);
+            sourceI.weight = newWeight;
+            _lookAtConstraint.SetSource(i, sourceI);
+        }
+    }
+    #endregion
+
+    #region PositionConstraint_Functions
+    public void AddNewPositionConstraint(Transform newConstraint) {
+        for (int i = 0; i < _positionConstraint.sourceCount; ++i) {
+            if (_positionConstraint.GetSource(i).sourceTransform.Equals(newConstraint)) {
+                Debug.LogWarningFormat("{} is a already a SourceConstraint!", newConstraint.name);
+                return;
+            }
+        }
+        var newSource = new ConstraintSource();
+        newSource.sourceTransform = newConstraint;
+        _positionConstraint.AddSource(newSource);
+        _SetFocalConstraintWeights (1f / _positionConstraint.sourceCount);
+
+    }
+    public void DeletePositionConstraint(Transform deleting) {
+        for (int i = 0; i < _positionConstraint.sourceCount; ++i) {
+            if (_positionConstraint.GetSource(i).sourceTransform.Equals(deleting))
+                _positionConstraint.RemoveSource(i);
+        }
+        _SetPositionalConstraintWeights(1f / _positionConstraint.sourceCount);
+    }
+    private void _SetPositionalConstraintWeights(in float newWeight) {
+        for (int i = 0; i < _positionConstraint.sourceCount; ++i) {
+            var sourceI = _positionConstraint.GetSource(i);
+            sourceI.weight = newWeight;
+            _positionConstraint.SetSource(i, sourceI);
+        }
+    }
+    #endregion
+    
+    public void ClearAllConstraints() {
+        for (int i = 0; i < _positionConstraint.sourceCount; i++) {
+            _positionConstraint.RemoveSource(i);
+        }
+        for (int i = 0; i < _lookAtConstraint.sourceCount; i++) {
+            _lookAtConstraint.RemoveSource(i);
+        }
     }
 
     /// <summary>
@@ -149,19 +207,7 @@ public class CameraController : MonoBehaviour {
     }
 
     /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="newWeight"></param>
-    private void _SetSourceConstraintWeights(in float newWeight) {
-        for (int i = 0; i < _lookAtConstraint.sourceCount; ++i) {
-            var sourceI = _lookAtConstraint.GetSource(i);
-            sourceI.weight = newWeight;
-            _lookAtConstraint.SetSource(i, sourceI);
-        }
-    }
-
-    /// <summary>
-    /// 
+    /// Take in Vector3 and output relative Axis enum.
     /// </summary>
     /// <param name="direction">Vector3 of normalized direction.</param>
     /// <returns>Axis enum</returns>
@@ -181,7 +227,7 @@ public class CameraController : MonoBehaviour {
     }
 
     private static Direction _GetLongestAxis(in Vector3 checking) {
-        int index = -1;
+        int index = -2;
         float greatestAxis = 0f;
         for (int i = 0; i < 3; ++i) {
             if (Mathf.Abs(checking[i]) > Mathf.Abs(greatestAxis)) {
@@ -192,5 +238,14 @@ public class CameraController : MonoBehaviour {
         //adjust index to match enum value
         ++index;
         return (Direction)(index * (Mathf.Abs(greatestAxis)/greatestAxis));
+    }
+
+    private Direction _GetHallwayAxis() {
+        var doorList = GameObject.FindGameObjectsWithTag("Door");
+        var dirList = new List<Direction>();
+        foreach (var door in doorList)
+            dirList.Add(_GetLongestAxis(door.transform.position));
+
+        return (dirList.TrueForAll(d => d == dirList[0])) ? dirList[0] : Direction.NULL;
     }
 }
