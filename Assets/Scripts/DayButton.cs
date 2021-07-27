@@ -12,6 +12,7 @@ public class DayButton : MonoBehaviour
     enum Time { Morning, Noon, Night };
     public Image timeImage;
     public Sprite[] shownSprite;
+    public Image backsplashSprite;
 
 
     // Use this for initialization
@@ -42,6 +43,22 @@ public class DayButton : MonoBehaviour
             default: //Time.Night
                 theButton.color = nightColor;
                 break;
+        }
+
+        if (dialPosition == 0)
+        {
+            switch (TimeOfDay)
+            {
+                case (int)Time.Morning:
+                    backsplashSprite.color = morningColor;
+                    break;
+                case (int)Time.Noon:
+                    backsplashSprite.color = Color.white;
+                    break;
+                default: //Time.Night
+                    backsplashSprite.color = new Color(.6f, .6f, .9f);
+                    break;
+            }
         }
     }
 
