@@ -15,7 +15,10 @@ public class CameraControllerEditor : Editor {
         _thisTarget = (CameraController)target;
     }
 
+
     public override void OnInspectorGUI() {
+        serializedObject.Update();
+
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Rotate Left"))
             _thisTarget.SnapRotateCamera("left");
@@ -23,16 +26,12 @@ public class CameraControllerEditor : Editor {
             _thisTarget.SnapRotateCamera("right");
         GUILayout.EndHorizontal();
         base.OnInspectorGUI();
-        
+
+        if (GUI.changed) {
+            _thisTarget.RefreshTrackingValues();
+        }
         if (serializedObject.hasModifiedProperties) {
-            //TODO: change position in-scene from variable changes
-            //if (_thisTarget.keepDistanceFromTarget && )
-            serializedObject.Update();
             serializedObject.ApplyModifiedProperties();
         }
-    }
-
-    private Vector3 _GetAdjustedPosition(float newTrackingDistance) {
-        return _thisTarget.target.position + (-_thisTarget.transform.forward * newTrackingDistance);
     }
 }

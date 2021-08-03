@@ -4,7 +4,10 @@ Author: Christian Mullins
 Date: 06/15/21
 Summary: Script that handles input that effects Player movement.
 */
+using System;
 using System.Collections;
+using System.Threading.Tasks;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,11 +21,18 @@ public class PlayerController : MonoBehaviour {
     private Coroutine _moveCoroutine;
     private HintableObject _curHintObj;
     
+    private CameraController _camController;
+    private SceneEffects _sceneFX;
+    private EventSystem _eventSys;
+    
     private void Start() {
+        _eventSys = EventSystem.current;
         isMovingScenes = false;
         isIdleState = true;
         _curHintObj = null;
         isMovingScenes = false;
+        _camController = camera.GetComponent<CameraController>();
+        _sceneFX = GetComponentInChildren<SceneEffects>();
 
         SceneManager.activeSceneChanged += delegate(Scene oldScene, Scene newScene) {
             if (this == null) return;
@@ -34,24 +44,16 @@ public class PlayerController : MonoBehaviour {
             if (gameObject.scene == oldScene) {
                 SceneManager.MoveGameObjectToScene(gameObject, newScene);
                 SceneManager.MoveGameObjectToScene(camera.gameObject, newScene);
-                isMovingScenes = false; //**********
+                isMovingScenes = false;
             }
         };
     }
 
     //handle all player mouse input here
     private void Update() {
-        #if UNITY_EDITOR
-        if (isIdleState) {
-            if (Input.GetKey(KeyCode.LeftArrow))
-                StartCoroutine(MoveTo(transform.position - camera.transform.right * moveSpeed));
-            else if (Input.GetKey(KeyCode.RightArrow))
-                StartCoroutine(MoveTo(transform.position + camera.transform.right * moveSpeed));
-        }
-        #endif
 
         if (camera == null) return; // avoid error on scene change
-
+        bool resetObj = true;
         var ray = camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(camera.transform.position, ray.direction, out hit)) {
@@ -60,18 +62,17 @@ public class PlayerController : MonoBehaviour {
                     _curHintObj = hit.transform.GetComponent<HintableObject>();
                     _curHintObj.SetHint();
                 }
-                goto skipReset;
+                resetObj = false;
             }
         }
 
         //reset values unless "goto" jump is called
-        if (_curHintObj != null) { 
+        if (_curHintObj != null && resetObj) { 
             _curHintObj.ResetObject();
             _curHintObj = null;
         }
 
-        skipReset: {}
-        if (!Input.GetMouseButtonDown(0) || hit.Equals(null)) return;
+        if (!Input.GetMouseButtonDown(0) ||_eventSys.IsPointerOverGameObject()) return;
 
         switch (hit.transform?.tag) {
             case "Ground":
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour {
             isIdleState = false;
             var movement = direction * moveSpeed * Time.deltaTime;
             travelDistance += movement.magnitude;
-            transform.position += movement;
+            transform.Translate(movement);
             yield return new WaitForEndOfFrame();
             if (isMovingScenes)
                 break;
@@ -109,8 +110,18 @@ public class PlayerController : MonoBehaviour {
         isIdleState = true;
     }
 
-    public void InteractWith(GameObject interacting) {
+    /// <summary>
+    /// Public function enabling camera snapping with effects.
+    /// </summary>
+    /// <param name="direction">"right" or "left"</param>
+    public void RotateCamera(string direction) {
+        StartCoroutine(_sceneFX.FadeUntil(delegate {
+            _camController.SnapRotateCamera(direction);
+        }));
+    }
 
+    public void InteractWith(GameObject interacting) {
+        //placeholder for future implementation
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -120,11 +131,4 @@ public class PlayerController : MonoBehaviour {
             isMovingScenes = true;
         }
     }
-/*
-    private void OnTriggerExit(Collider other) {
-        if (other.CompareTag("Door"))
-            isMovingScenes = false;
-    }
-*/
-
 }
