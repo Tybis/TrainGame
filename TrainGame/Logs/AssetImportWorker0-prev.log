@@ -1,0 +1,173 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.11f1 (99c7afb366b3) revision 10078127'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19042.1052; Version 2009; 64bit' Language: 'en' Physical Memory: 16233 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/tyler/Documents/GitHub/TrainGame/TrainGame
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+55260
+Successfully changed project path to: C:/Users/tyler/Documents/GitHub/TrainGame/TrainGame
+C:/Users/tyler/Documents/GitHub/TrainGame/TrainGame
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 84.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.11f1 (99c7afb366b3)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/tyler/Documents/GitHub/TrainGame/TrainGame/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f11)
+    Vendor:   
+    VRAM:     5980 MB
+    Driver:   27.21.14.6663
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56960
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.005783 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 73.00 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.325 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.012900 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.026 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.13 seconds
+Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1386 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 64.6 MB.
+System memory in use after: 64.7 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1819.
+Total: 4.407300 ms (FindLiveObjects: 0.349600 ms CreateObjectMapping: 0.107800 ms MarkObjects: 3.770200 ms  DeleteObjects: 0.175200 ms)
+
+========================================================================
+Received Import Request.
+  path: Packages/com.unity.ide.rider/package.json
+  artifactKey: Guid(66c95bb3c74257f41bae2622511dc02d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.ide.rider/package.json using Guid(66c95bb3c74257f41bae2622511dc02d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff96f7b61e94a0dc9b975679be81ead9') in 0.117997 seconds
+  Import took 0.124553 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 790.607552 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(fb38e9cc84e87784894fa22b116bb106) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(fb38e9cc84e87784894fa22b116bb106) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dd7c9a53912af60a91005f837bb6ffb') in 0.015039 seconds
+  Import took 0.021289 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.024779 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(fb38e9cc84e87784894fa22b116bb106) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(fb38e9cc84e87784894fa22b116bb106) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dd7c9a53912af60a91005f837bb6ffb') in 0.005334 seconds
+  Import took 0.010600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.960131 seconds.
+  path: Assets/Scenes/CarDoorway.fbx
+  artifactKey: Guid(66284a13d98e96e43bd12c7f168b6190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/CarDoorway.fbx using Guid(66284a13d98e96e43bd12c7f168b6190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec724f27c50dc5d5c7b499f2fc580b8e') in 1.081912 seconds
+  Import took 1.087566 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000634 seconds.
+  path: Assets/Scenes/CarTop.fbx
+  artifactKey: Guid(061895ca662bb184ea129af197afdabf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/CarTop.fbx using Guid(061895ca662bb184ea129af197afdabf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f6bc554308ba7eb5b0391b5473233b7') in 0.140702 seconds
+  Import took 0.146308 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000515 seconds.
+  path: Assets/Scenes/DiningCar.fbx
+  artifactKey: Guid(74357d1dd9a282c418bc3529139ec0e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/DiningCar.fbx using Guid(74357d1dd9a282c418bc3529139ec0e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51490b8677e8386fd47719f0b2274d8a') in 0.236732 seconds
+  Import took 0.242431 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000530 seconds.
+  path: Assets/Scenes/PassengerCar.fbx
+  artifactKey: Guid(f68645657c9128a43af0068f53a23158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/PassengerCar.fbx using Guid(f68645657c9128a43af0068f53a23158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e3875b9ead1b0c1c6cf18a1da261b13') in 0.169133 seconds
+  Import took 0.174425 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 694.508671 seconds.
+  path: Assets/Scenes/PassengerCar.prefab
+  artifactKey: Guid(39e6e9023dbc7e6459c9411fb204f983) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/PassengerCar.prefab using Guid(39e6e9023dbc7e6459c9411fb204f983) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ee4481f0572c1e10eebf2334cd54a6e') in 0.053042 seconds
+  Import took 0.059975 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.192706 seconds.
+  path: Assets/Scenes/PassengerCar.fbx
+  artifactKey: Guid(f68645657c9128a43af0068f53a23158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/PassengerCar.fbx using Guid(f68645657c9128a43af0068f53a23158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a25d676882ed13cfe63a877e5854947f') in 0.166609 seconds
+  Import took 0.172363 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 581.423929 seconds.
+  path: Assets/Scenes/CarDoorway.prefab
+  artifactKey: Guid(f0e58806d6f4d2b4e9e8b63888210e12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/CarDoorway.prefab using Guid(f0e58806d6f4d2b4e9e8b63888210e12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfeb8f0c6dfdb989fbbaf72489aa069f') in 0.037501 seconds
+  Import took 0.041180 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1376.272244 seconds.
+  path: Assets/Scenes/SleepeerCar.prefab
+  artifactKey: Guid(dda3af6cde70f9647b01efaf2af3ffd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SleepeerCar.prefab using Guid(dda3af6cde70f9647b01efaf2af3ffd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4326589b17cbb6c615f4c071e9bec902') in 0.023654 seconds
+  Import took 0.027424 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006692 seconds.
+  path: Assets/Scenes/SleepeerCar.prefab
+  artifactKey: Guid(dda3af6cde70f9647b01efaf2af3ffd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SleepeerCar.prefab using Guid(dda3af6cde70f9647b01efaf2af3ffd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4326589b17cbb6c615f4c071e9bec902') in 0.019601 seconds
+  Import took 0.022950 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1057.536537 seconds.
+  path: Assets/Scenes/MurderRoom.prefab
+  artifactKey: Guid(ce62048818796bc4095b6286b7b6d34c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MurderRoom.prefab using Guid(ce62048818796bc4095b6286b7b6d34c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48573bc9f5d8270219b01b342f675caa') in 0.029596 seconds
+  Import took 0.033761 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
