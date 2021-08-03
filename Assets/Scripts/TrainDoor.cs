@@ -7,16 +7,19 @@ Summary: Script object to handle door transitions.
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using AsyncOperation = UnityEngine.AsyncOperation;
 
 public class TrainDoor : MonoBehaviour {
     public string nextCarScene => _nextCarScene;
     [SerializeField]
     private string _nextCarScene;
+
+    private void Start() {
+        if (!_IsValidScene(_nextCarScene) && !String.IsNullOrEmpty(_nextCarScene)) {
+            Debug.LogWarning(_nextCarScene + " was not found to be a valid scene.");
+        }
+    }
 
     public void GoToNextCar(in GameObject curPlayer) {
         if (String.IsNullOrEmpty(_nextCarScene)) return;
@@ -25,11 +28,15 @@ public class TrainDoor : MonoBehaviour {
         StartCoroutine(_MigrateScene(curPlayer));
     }
 
+    /// <summary>
+    /// Move player prefabs over to next scene and orient things correctly for new prefab.
+    /// </summary>
+    /// <param name="curPlayer">Current Player prefab in use.</param>
     private IEnumerator _MigrateScene(GameObject curPlayer) {
-        // gather prefabs that will move to the new scene
+        // gather prefabs that will move to the new scene and begin effects
         Camera curCam = curPlayer.GetComponent<PlayerController>().camera;
-        var sE = curCam.GetComponent<SceneEffects>();
-        yield return StartCoroutine(sE.StartFadeTransition());
+        var sEffects = curPlayer.GetComponentInChildren<SceneEffects>();
+        yield return StartCoroutine(sEffects.StartFadeTransition());
         var loadOp = SceneManager.LoadSceneAsync(_nextCarScene, LoadSceneMode.Additive);
         yield return new WaitUntil(() => loadOp.isDone);
         var newScene = SceneManager.GetSceneByName(_nextCarScene);
@@ -48,10 +55,27 @@ public class TrainDoor : MonoBehaviour {
         curPlayer.transform.position = spawnPos;
         // unload old scene
         var unloadOp = SceneManager.UnloadSceneAsync(gameObject.scene);
-        StartCoroutine(sE.EndFadeTransition(unloadOp));
+        StartCoroutine(sEffects.EndFadeTransition(unloadOp));
         unloadOp.completed += delegate {
             curPlayer.GetComponent<Collider>().enabled = true;
             curPlayer.GetComponent<Rigidbody>().isKinematic = false;
         };
+    }
+
+    /// <summary>
+    /// Checks if scene name is contained in Build Settings.
+    /// </summary>
+    /// <param name="sceneName">Name of scene.</param>
+    /// <returns>Bool is the scene in parameter is in Build Settings.</returns>
+    private bool _IsValidScene(in string sceneName) {
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; ++i) {
+            string searchScene = SceneUtility.GetScenePathByBuildIndex(i);
+            searchScene = searchScene.TrimEnd(".unity".ToCharArray());
+            int lastSlash = searchScene.LastIndexOf('/');
+            searchScene = searchScene.Substring(lastSlash + 1);
+            
+            if (searchScene == sceneName) return true;
+        }
+        return false;
     }
 }
