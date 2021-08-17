@@ -1426,10 +1426,10 @@ MonoBehaviour:
   maxAutoWidthFactor: 0.5
   relativeRect:
     serializedVersion: 2
-    x: 566.4
+    x: 664.812
     y: 0
-    width: 33.6
-    height: 91.799995
+    width: 39.438
+    height: 107.712006
   relativePosition: {x: 94.4, y: 0}
   numSlots: 1
   uiButton: {fileID: 0}
@@ -2028,8 +2028,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 31.2
-    height: 91.799995
+    width: 36.621002
+    height: 107.712006
   relativePosition: {x: 0, y: 0}
   numSlots: 1
   uiButton: {fileID: 0}
@@ -4702,10 +4702,10 @@ MonoBehaviour:
   maxAutoWidthFactor: 0.5
   relativeRect:
     serializedVersion: 2
-    x: 40.199997
-    y: 18.911251
-    width: 520
-    height: 55.350002
+    x: 47.18475
+    y: 22.1892
+    width: 610.35004
+    height: 64.944
   relativePosition: {x: 6.7, y: 20.5}
   numSlots: 7
   uiSlots:
@@ -5029,7 +5029,7 @@ MonoBehaviour:
   title: Inventory
   manualSize: {x: 75, y: 20.5}
   positionType: 1
-  manualPosition: {x: 400, y: 403.875}
+  manualPosition: {x: 469.5, y: 473.88}
   positionSmoothing: 0
   alignment: 7
   toggleKey: 
@@ -5043,7 +5043,7 @@ MonoBehaviour:
   updateWhenFadeOut: 1
   hideDuringSaveScreenshots: 1
   fitWithinScreen: 1
-  backgroundTexture: {fileID: 2800000, guid: 100db38df87711144bc58d64b591e0d2, type: 3}
+  backgroundTexture: {fileID: 0}
   visibleElements:
   - {fileID: -5067111722285957902}
   - {fileID: 4088836629693894688}
@@ -5105,10 +5105,10 @@ MonoBehaviour:
   biggestElementSize: {x: 833.7, y: 129.96}
   rect:
     serializedVersion: 2
-    x: 100
-    y: 357.75
-    width: 600
-    height: 92.25
+    x: 117.375
+    y: 419.76
+    width: 704.25
+    height: 108.24
   showInFilter: 1
 --- !u!114 &4573670656667043774
 MonoBehaviour:
